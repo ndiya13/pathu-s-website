@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Scrapbook — For You</title>
+
+  <!-- Handwritten & elegant fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       1. FLOWER CURTAIN — Intro overlay (click anywhere to dismiss)
+       ============================================================ -->
+  <div id="flower-curtain" class="flower-curtain" aria-hidden="false">
+    <div class="curtain-flowers" id="curtain-flowers">
+      <!-- Flowers are injected by script.js for density & variety -->
+    </div>
+    <div class="curtain-prompt">
+      <p class="tap-text">Tap to reveal</p>
+      <span class="tap-sub">✦ a little world we made for you ✦</span>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       2. FLOATING BACKGROUND DECOR — Fixed scrapbook elements
+       ============================================================ -->
+  <div class="bg-decor" aria-hidden="true">
+    <!-- Jellyfish -->
+    <div class="decor decor-jellyfish decor-1" data-depth="0.03">
+      <svg viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="60" cy="45" rx="38" ry="32" fill="rgba(255,200,220,0.55)" />
+        <path d="M30 55 Q25 90 28 130 M45 58 Q42 95 44 140 M60 60 Q60 100 60 150 M75 58 Q78 95 76 140 M90 55 Q95 90 92 130" stroke="rgba(255,180,210,0.6)" stroke-width="2" fill="none" />
+      </svg>
+    </div>
+    <div class="decor decor-jellyfish decor-2" data-depth="0.05">
+      <svg viewBox="0 0 80 110" fill="none"><ellipse cx="40" cy="30" rx="26" ry="22" fill="rgba(200,220,255,0.5)"/><path d="M20 38 Q16 65 18 95 M35 40 Q33 70 34 100 M50 40 Q52 70 50 100 M60 38 Q64 65 62 95" stroke="rgba(180,210,255,0.5)" stroke-width="1.5" fill="none"/></svg>
+    </div>
+
+    <!-- Seashells -->
+    <div class="decor decor-shell decor-3" data-depth="0.04">
+      <svg viewBox="0 0 80 70" fill="none"><path d="M10 50 Q40 5 70 50 Q40 68 10 50Z" fill="rgba(255,240,230,0.85)" stroke="rgba(220,190,170,0.6)" stroke-width="1.5"/><path d="M20 48 Q40 25 60 48" stroke="rgba(220,190,170,0.4)" stroke-width="1" fill="none"/></svg>
+    </div>
+    <div class="decor decor-shell decor-4" data-depth="0.02">
+      <svg viewBox="0 0 60 55" fill="none"><path d="M8 40 Q30 8 52 40 Q30 52 8 40Z" fill="rgba(255,235,225,0.8)" stroke="rgba(210,180,160,0.5)" stroke-width="1"/></svg>
+    </div>
+
+    <!-- Pearls -->
+    <div class="decor decor-pearl decor-5" data-depth="0.06"></div>
+    <div class="decor decor-pearl decor-6" data-depth="0.03"></div>
+    <div class="decor decor-pearl decor-7" data-depth="0.04"></div>
+    <div class="decor decor-pearl decor-8" data-depth="0.02"></div>
+
+    <!-- Hibiscus flowers -->
+    <div class="decor decor-hibiscus decor-9" data-depth="0.035">
+      <svg viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="8" fill="rgba(255,150,180,0.7)"/>
+        <ellipse cx="50" cy="22" rx="14" ry="22" fill="rgba(255,170,195,0.65)" transform="rotate(0 50 50)"/>
+        <ellipse cx="50" cy="22" rx="14" ry="22" fill="rgba(255,170,195,0.65)" transform="rotate(72 50 50)"/>
+        <ellipse cx="50" cy="22" rx="14" ry="22" fill="rgba(255,170,195,0.65)" transform="rotate(144 50 50)"/>
+        <ellipse cx="50" cy="22" rx="14" ry="22" fill="rgba(255,170,195,0.65)" transform="rotate(216 50 50)"/>
+        <ellipse cx="50" cy="22" rx="14" ry="22" fill="rgba(255,170,195,0.65)" transform="rotate(288 50 50)"/>
+      </svg>
+    </div>
+    <div class="decor decor-hibiscus decor-10" data-depth="0.05">
+      <svg viewBox="0 0 70 70" fill="none">
+        <circle cx="35" cy="35" r="6" fill="rgba(255,160,175,0.6)"/>
+        <ellipse cx="35" cy="16" rx="10" ry="16" fill="rgba(255,180,195,0.55)" transform="rotate(0 35 35)"/>
+        <ellipse cx="35" cy="16" rx="10" ry="16" fill="rgba(255,180,195,0.55)" transform="rotate(72 35 35)"/>
+        <ellipse cx="35" cy="16" rx="10" ry="16" fill="rgba(255,180,195,0.55)" transform="rotate(144 35 35)"/>
+        <ellipse cx="35" cy="16" rx="10" ry="16" fill="rgba(255,180,195,0.55)" transform="rotate(216 35 35)"/>
+        <ellipse cx="35" cy="16" rx="10" ry="16" fill="rgba(255,180,195,0.55)" transform="rotate(288 35 35)"/>
+      </svg>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       3. MAIN SCRAPBOOK CONTENT
+       ============================================================ -->
+  <main class="scrapbook" id="main-content">
+
+    <!-- Hero header -->
+    <header class="hero">
+      <h1 class="hero-title">For My Yellow Paper Daisy</h1>
+      <p class="hero-subtitle">this is my tiny little way of showing you how much i love you <3 </p>
+    </header>
+
+
+    <!-- ── POLAROID GALLERY ─────────────────────────────────────
+         Swap src URLs with your own photos/videos.
+         Add more .polaroid blocks by copying the template below.
+         ──────────────────────────────────────────────────────── -->
+    <section class="collage-section" aria-label="Photo memories">
+
+      <!-- POLAROID 1 — replace image src -->
+      <figure class="polaroid rotate-right" style="--delay: 0.1s">
+        <div class="polaroid-media">
+          <img
+            src="photo1.jpeg"
+            alt="Photo 1"
+            loading="lazy"
+          />
+        </div>
+        <figcaption class="polaroid-caption">how can someone be this pretty?!</figcaption>
+      </figure>
+
+      <!-- POLAROID 2 — video placeholder -->
+      <figure class="polaroid rotate-left" style="--delay: 0.2s">
+        <div class="polaroid-media">
+          <!-- Replace poster + src with your own video file -->
+          <video controls poster="cover vid1.png">
+            <source src="video1.mp4" type="video/mp4" />
+            Your browser does not support video.
+          </video>
+        </div>
+        <figcaption class="polaroid-caption">you with your favorite thing in the world (like you would literally give up your life for it)</figcaption>
+      </figure>
+
+      <!-- STICKY NOTE — scatter these anywhere in the collage -->
+      <div class="sticky-note note-yellow rotate-right-sm" style="--delay: 0.15s">
+        <p>"You're literally the only person i can tolerate 24/7, no matter what."</p>
+      </div>
+
+      <!-- POLAROID 3 -->
+      <figure class="polaroid rotate-left-lg" style="--delay: 0.25s">
+        <div class="polaroid-media">
+          <img
+            src="photo2.jpeg"
+            alt="Photo 2"
+            loading="lazy"
+          />
+        </div>
+        <figcaption class="polaroid-caption">babe your face has NO filter but I LOVE IT!!</figcaption>
+      </figure>
+
+      <!-- POLAROID 4 -->
+      <figure class="polaroid rotate-right-sm" style="--delay: 0.3s">
+        <div class="polaroid-media">
+          <img
+            src="photo3.jpeg"
+            alt="photo 3"
+            loading="lazy"
+          />
+        </div>
+        <figcaption class="polaroid-caption">look at how much this cutie has grown!! you still have the same bright smile tho</figcaption>
+      </figure>
+
+      <div class="sticky-note note-pink rotate-left-sm" style="--delay: 0.35s">
+        <p> you literally are my sunshine (not joking)</p>
+      </div>
+
+    </section>
+
+
+    <!-- ── INTERACTIVE ENVELOPE / LETTER ────────────────────────
+         Edit the letter text inside .letter-body below.
+         ──────────────────────────────────────────────────────── -->
+    <section class="letter-section" aria-label="A letter for you">
+      <div class="envelope-wrapper">
+        <div class="envelope" id="envelope" tabindex="0" role="button" aria-label="Open letter">
+          <!-- Envelope back -->
+          <div class="envelope-back"></div>
+          <!-- Letter slides up on hover/click -->
+          <div class="letter" id="letter">
+            <div class="letter-paper">
+              <p class="letter-greeting">My dearest friend,</p>
+              <div class="letter-body">
+                <!-- ✏️ REPLACE THIS TEXT with your personal message -->
+                <p>
+                  I made this little corner of the internet just for you — because some friendships
+                  deserve more than a text message. Every photo, every song, every silly sticky note
+                  here is a tiny piece of how much you mean to me.
+                </p>
+                <p>
+                  Thank you for the late-night laughs, the shared playlists, the random voice notes,
+                  and for being the kind of person who makes ordinary days feel like something out
+                  of a dream. I hope scrolling through this feels like flipping through our own
+                  private scrapbook — messy, beautiful, and entirely ours.
+                </p>
+                <p>
+                  Always & forever,<br/>
+                  <em>— your person 💌</em>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Envelope front flap -->
+          <div class="envelope-flap"></div>
+          <!-- Envelope front pocket -->
+          <div class="envelope-front"></div>
+          <!-- Wax seal -->
+          <div class="envelope-seal">♥</div>
+        </div>
+        <p class="envelope-hint">hover or tap to read the letter</p>
+      </div>
+    </section>
+
+
+    <!-- ── MORE COLLAGE + STICKY NOTES ───────────────────────── -->
+    <section class="collage-section collage-section-2" aria-label="More memories">
+
+      <figure class="polaroid rotate-right" style="--delay: 0.1s">
+        <div class="polaroid-media">
+          <img
+            src="photo4.jpeg"
+            alt="photo 4"
+            loading="lazy"
+          />
+        </div>
+        <figcaption class="polaroid-caption">the only person i would trust my plushies with</figcaption>
+      </figure>
+
+      <div class="sticky-note note-blue rotate-right-sm" style="--delay: 0.2s">
+        <p>"Okay but seriously — you're my person."</p>
+      </div>
+
+      <figure class="polaroid rotate-left" style="--delay: 0.25s">
+        <div class="polaroid-media">
+          <img
+            src="photo5.jpeg"
+            alt="photo 5"
+            loading="lazy"
+          />
+        </div>
+        <figcaption class="polaroid-caption">thank you for always being there for me even when i dragged you to shit you didnt wanna do</figcaption>
+      </figure>
+
+      <figure class="polaroid rotate-right-sm" style="--delay: 0.35s; grid-column: 3 / 7; grid-row: 2; width: 90% !important; max-width: none !important; z-index: 10; transform: translateX(-40px) rotate(2deg);">
+        <div class="polaroid-media">
+          <img
+            src="photo6.jpeg"
+            alt="Placeholder — replace with your photo"
+            loading="lazy"
+          />
+        </div>
+        <figcaption class="polaroid-caption">such a diva</figcaption>
+      </figure>
+
+      <div class="note-music-stack rotate-left" style="--delay: 0.3s; grid-column: 6 / 11; grid-row: 2; margin-top: -0.5rem; min-width: 300px; overflow: visible; margin-left: 40px;">
+        <div class="sticky-note note-lavender">
+          <!-- ✏️ REPLACE with your own message -->
+          <p>she aint got no money, her clothes are kinda funny and her hair is kinda wild and free...</p>
+        </div>
+        <!-- ✏️ REPLACE iframe src with your Spotify embed URL -->
+        <iframe
+          style="border-radius:12px; border:none; width:100%; display:block;"
+          src="https://open.spotify.com/embed/track/5Ts1DYOuouQLgzTaisxWYh?utm_source=generator&si=25e9f34cd4944ba9"
+          width="100%"
+          height="152"
+          frameBorder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+          title="Love Grows (Where My Rosemary Goes) — Edison Lighthouse"
+        ></iframe>
+      </div>
+
+    </section>
+
+
+    <!-- ── BOTTOM COLLAGE — Video, photos & Spotify ─────────────
+         Row 1: video polaroid (left) + photo7 (right)
+         Row 2: Spotify embed (left) + photo8 (right)
+         ──────────────────────────────────────────────────────── -->
+    <section class="collage-section collage-section-3" aria-label="More memories">
+
+      
+      <!-- ROW 1 — Video polaroid (left) -->
+      <figure class="polaroid rotate-right" style="--delay: 0.2s; transform: scale(0.85) rotate(3deg);">
+        <div class="polaroid-media">
+          <img
+            src="photo7.jpeg"
+            alt="Photo 7"
+            loading="lazy"
+          />
+        </div>
+        <figcaption class="polaroid-caption">you literally make me the happiest version of myself <3s</figcaption>
+      </figure>
+      
+      <figure class="polaroid rotate-left" style="--delay: 0.1s; transform: scale(1.15) rotate(-5deg); z-index: 2;">
+        <div class="polaroid-media">
+          <video controls poster="cover vid2.png">
+            <source src="video3.mp4" type="video/mp4" />
+            Your browser does not support video.
+          </video>
+        </div>
+        <figcaption class="polaroid-caption">i loved it everytime the "pathu show" was on</figcaption>
+      </figure>
+
+      <!-- ROW 2 — Spotify embed + note (left) -->
+      <div class="spotify-embed-block note-music-stack rotate-right-sm" style="--delay: 0.25s; display: flex; flex-direction: column; gap: 0.75rem;">
+        <!-- ✏️ REPLACE iframe src with your Spotify embed URL -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5aQe0faFOjeskrHwpleXLJ?utm_source=generator&si=ee05844aaea5487c" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="sticky-note note-yellow">
+          <p>i miss the days when i could pop into your room, invade your space and hear yu complai about how i am always on the phone or how im always busy. i miss waking you up in the mornings or pushing you to brush or pushing you to take a shower. i miss your incessant knocking on my window. i miss your hugs and non-stop kisses.</p>
+        </div>
+      </div>
+
+      <!-- ROW 2 — Photo polaroid (right) -->
+      <figure class="polaroid rotate-left-sm" style="--delay: 0.3s">
+        <div class="polaroid-media">
+          <img
+            src="photo8.jpeg"
+            alt="Photo 8"
+            loading="lazy"
+          />
+        </div>
+        <!-- ✏️ REPLACE with your caption -->
+        <figcaption class="polaroid-caption">look at us, we look so happy</figcaption>
+      </figure>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>even though we are apart i hope you have a very happy and peacful birthday and i hope all your wishes come true.</p>
+      <p class="footer-small">i love you and once again, HAPPY BIRTHDAY!!</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
